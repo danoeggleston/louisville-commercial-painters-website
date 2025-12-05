@@ -3,7 +3,12 @@
     "allow": [
       "Bash(dir:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(gh:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(copy \"C:\\Users\\Dan\\Downloads\\Gemini_Generated_Image_q262h1q262h1q262.png\" \"c:\\Users\\Dan\\Documents\\GitHub\\danoeggleston\\louisville-commercial-painters-website\\logo.png\")",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
