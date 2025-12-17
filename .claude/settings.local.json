@@ -9,7 +9,8 @@
       "Bash(git push:*)",
       "Bash(copy \"C:\\Users\\Dan\\Downloads\\Gemini_Generated_Image_q262h1q262h1q262.png\" \"c:\\Users\\Dan\\Documents\\GitHub\\danoeggleston\\louisville-commercial-painters-website\\logo.png\")",
       "Bash(git commit:*)",
-      "Bash(cmd /c copy \"C:\\Users\\Dan\\Downloads\\lvl-comm-painter-logo.png\" \"c:\\Users\\Dan\\Documents\\GitHub\\danoeggleston\\louisville-commercial-painters-website\\logo.png\")"
+      "Bash(cmd /c copy \"C:\\Users\\Dan\\Downloads\\lvl-comm-painter-logo.png\" \"c:\\Users\\Dan\\Documents\\GitHub\\danoeggleston\\louisville-commercial-painters-website\\logo.png\")",
+      "Bash(powershell -Command \"$word = New-Object -ComObject Word.Application; $word.Visible = $false; $doc = $word.Documents.Open(''C:\\Users\\Dan\\Downloads\\Louisville_Commercial_Painting_Website_Requirements.docx''); $doc.Content.Text; $doc.Close(); $word.Quit(); [System.Runtime.Interopservices.Marshal]::ReleaseComObject($word) | Out-Null\")"
     ],
     "deny": [],
     "ask": []

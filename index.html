@@ -315,35 +315,62 @@
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
         
-        .hero-stats {
+        .hero-value-props {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .value-prop-card {
             background: rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
             padding: 2rem;
             border: 1px solid rgba(255,255,255,0.1);
+            border-left: 4px solid var(--red);
+            transition: all 0.3s ease;
+        }
+
+        .value-prop-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-left-width: 6px;
+            transform: translateX(5px);
+        }
+
+        .value-prop-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .value-prop-card p {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
         
-        .stat {
+        /* Company Positioning */
+        .positioning {
+            padding: 4rem 2rem;
+            background: var(--white);
+            border-top: 1px solid var(--gray-light);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .positioning-content {
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
         }
-        
-        .stat-number {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            color: var(--red);
-            line-height: 1;
+
+        .positioning-content p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--gray-dark);
+            font-style: italic;
         }
-        
-        .stat-label {
-            color: var(--gray-light);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 0.5rem;
-        }
-        
+
         /* Services Section */
         .services {
             padding: 6rem 2rem;
@@ -495,6 +522,95 @@
             line-height: 1.7;
         }
         
+        /* For GCs Section */
+        .for-gcs {
+            padding: 6rem 2rem;
+            background: var(--red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .for-gcs::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .for-gcs .section-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .for-gcs .section-tag {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .for-gcs .section-title {
+            color: var(--white);
+        }
+
+        .for-gcs-intro {
+            text-align: center;
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        .gc-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gc-benefit {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .gc-benefit:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+
+        .gc-benefit h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+
+        .gc-benefit p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.7;
+        }
+
+        .gc-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .gc-cta .btn {
+            background: var(--white);
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .gc-cta .btn:hover {
+            background: var(--off-white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
         /* Industries Section */
         .industries {
             padding: 6rem 2rem;
@@ -879,9 +995,8 @@
                 padding: 120px 0 60px;
             }
             
-            .hero-stats {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .hero-value-props {
+                gap: 1rem;
             }
             
             .process-steps {
@@ -939,32 +1054,39 @@
     <header class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <span class="hero-badge">Louisville's Commercial Painting Experts</span>
-                <h1>PROFESSIONAL <span>COMMERCIAL</span> PAINTING SERVICES</h1>
-                <p class="hero-description">Transform your business space with Louisville's most trusted commercial painting contractors. Quality workmanship, minimal disruption, and results that last.</p>
+                <span class="hero-badge">Commercial Painting for General Contractors</span>
+                <h1>FAST QUOTES. <span>RELIABLE CREWS.</span> QUALITY WORK.</h1>
+                <p class="hero-description">Louisville-based commercial painting contractor focused on what GCs need most: responsive service, professional results, and zero drama.</p>
                 <div class="hero-ctas">
                     <a href="#contact" class="btn btn-primary">Request Free Estimate</a>
                     <a href="#services" class="btn btn-secondary">Our Services</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Years Experience</div>
+                <div class="hero-value-props">
+                    <div class="value-prop-card">
+                        <h3>24-Hour Quotes</h3>
+                        <p>Fast turnaround so you can bid with confidence</p>
                     </div>
-                    <div class="stat">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Projects Completed</div>
+                    <div class="value-prop-card">
+                        <h3>Flexible Scheduling</h3>
+                        <p>Nights, weekends, phased work—we adapt to your timeline</p>
                     </div>
-                    <div class="stat">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Satisfaction Rate</div>
+                    <div class="value-prop-card">
+                        <h3>GC-Friendly</h3>
+                        <p>Clean sites, clear communication, no surprises</p>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Company Positioning -->
+    <section class="positioning">
+        <div class="positioning-content">
+            <p>"Louisville Commercial Painting Co. was founded to solve a simple problem: general contractors need painting subs who quote fast, communicate clearly, and deliver quality work without drama. We partner with experienced crews and hold them to a higher standard—because your reputation is on the line, and so is ours."</p>
+        </div>
+    </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
@@ -1053,9 +1175,40 @@
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                     </div>
-                    <h3>EXPERIENCED CREWS</h3>
-                    <p>Our professional painters average 10+ years of commercial experience. Skilled craftsmen deliver flawless results on every project.</p>
+                    <h3>SKILLED, VETTED CREWS</h3>
+                    <p>We partner with experienced painting crews and hold them to a higher standard. Quality workmanship on every project.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For General Contractors Section -->
+    <section class="for-gcs">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">FOR GENERAL CONTRACTORS</span>
+                <h2 class="section-title">WE KNOW WHAT YOU NEED FROM A PAINTING SUB</h2>
+            </div>
+            <div class="gc-benefits">
+                <div class="gc-benefit fade-in">
+                    <h3>Quotes That Don't Take a Week</h3>
+                    <p>We turn around estimates in 24-48 hours so you can bid with confidence and keep your projects moving forward.</p>
+                </div>
+                <div class="gc-benefit fade-in">
+                    <h3>Someone Who Shows Up</h3>
+                    <p>Reliable scheduling, no ghosting. When we commit to a date, we're there—ready to work.</p>
+                </div>
+                <div class="gc-benefit fade-in">
+                    <h3>Clean Job Sites</h3>
+                    <p>We don't leave your site a mess. Professional cleanup is part of every project, every day.</p>
+                </div>
+                <div class="gc-benefit fade-in">
+                    <h3>No Change Order Games</h3>
+                    <p>Clear scope, honest pricing. We work from your plans and specifications—no surprises.</p>
+                </div>
+            </div>
+            <div class="gc-cta">
+                <a href="#contact" class="btn">Let's Talk</a>
             </div>
         </div>
     </section>
@@ -1209,11 +1362,12 @@
                             <label for="projectType">Project Type *</label>
                             <select id="projectType" name="projectType" required>
                                 <option value="">Select a project type...</option>
-                                <option value="interior">Interior Painting</option>
-                                <option value="exterior">Exterior Painting</option>
-                                <option value="both">Interior & Exterior</option>
-                                <option value="industrial">Industrial/Warehouse</option>
-                                <option value="specialty">Specialty Coatings</option>
+                                <option value="tenant-improvement">Tenant Improvement / Buildout</option>
+                                <option value="office-commercial">Office / Commercial Interior</option>
+                                <option value="retail">Retail Space</option>
+                                <option value="warehouse-industrial">Warehouse / Industrial</option>
+                                <option value="exterior">Exterior / Building Envelope</option>
+                                <option value="specialty">Specialty Coatings (Epoxy, etc.)</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
@@ -1233,7 +1387,7 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <img src="logo.png" alt="Louisville Commercial Painting Co." class="footer-logo">
-                <p>Louisville Commercial Painting Co. is the region's premier commercial painting contractor. We deliver exceptional quality, professionalism, and results that exceed expectations. Licensed, insured, and committed to excellence.</p>
+                <p>Louisville Commercial Painting Co. is a Louisville-based commercial painting contractor focused on quality, reliability, and responsive service. We work with general contractors and property managers to deliver professional results on time and on budget.</p>
             </div>
             <div class="footer-links">
                 <h4>SERVICES</h4>
