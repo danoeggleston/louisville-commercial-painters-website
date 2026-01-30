@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 72">
+  <!-- 
+    LCP PRIMARY LOGO - Horizontal Badge (Outline/Dark)
+    Balanced heights: LCP and text block same visual height
+  -->
+  <rect x="1.5" y="1.5" width="277" height="69" rx="6" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+  <!-- Centered divider -->
+  <rect x="139" y="16" width="3" height="40" fill="#c41e3a"/>
+  <!-- LCP - baseline at 51, cap top at ~22 -->
+  <text x="70" y="51" font-family="Arial Black, sans-serif" font-size="40" fill="#1a1a1a" font-weight="900" text-anchor="middle" letter-spacing="2">LCP</text>
+  <!-- Text block - matching height from y=22 to y=51 -->
+  <text x="210" y="29" font-family="Arial, sans-serif" font-size="10" fill="#1a1a1a" letter-spacing="1.5" text-anchor="middle" font-weight="600">LOUISVILLE</text>
+  <text x="210" y="40" font-family="Arial, sans-serif" font-size="10" fill="#1a1a1a" letter-spacing="1.5" text-anchor="middle" font-weight="600">COMMERCIAL</text>
+  <text x="210" y="51" font-family="Arial, sans-serif" font-size="10" fill="#1a1a1a" letter-spacing="1.5" text-anchor="middle" font-weight="600">PAINTERS</text>
+</svg>
