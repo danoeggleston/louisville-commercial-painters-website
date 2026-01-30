@@ -1028,6 +1028,324 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ===== Quote Modal ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-container {
+            background: var(--white);
+            width: 100%;
+            max-width: 720px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            margin: auto;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            background: var(--black);
+            padding: 2rem 2.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .modal-header h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .modal-step-indicator {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-header p {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0.25rem 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--red);
+        }
+
+        .modal-body {
+            padding: 2rem 2.5rem;
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .form-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .form-section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            color: var(--red);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-light);
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.95rem;
+            color: var(--gray-dark);
+            background: var(--white);
+            transition: border-color 0.3s ease;
+            border-radius: 0;
+            -webkit-appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 2px rgba(196, 30, 58, 0.1);
+        }
+
+        .form-group input.error,
+        .form-group select.error {
+            border-color: var(--red);
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-label,
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 400 !important;
+            font-size: 0.95rem !important;
+            text-transform: none !important;
+            cursor: pointer;
+        }
+
+        .radio-label input,
+        .checkbox-label input {
+            width: auto;
+            margin: 0;
+        }
+
+        .form-actions {
+            padding-top: 1rem;
+            text-align: center;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem 2rem;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: none;
+            cursor: pointer;
+            background: var(--red);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .form-details-prompt {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .form-details-link {
+            background: none;
+            border: none;
+            color: var(--red);
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .form-details-link:hover {
+            color: var(--red-dark);
+        }
+
+        .form-back-link {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.3s ease;
+        }
+
+        .form-back-link:hover {
+            color: var(--gray-dark);
+        }
+
+        .modal-success {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #10B981;
+            color: var(--white);
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+        }
+
+        .modal-success h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .modal-success p {
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .modal-success .btn {
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .modal-overlay {
+                padding: 0;
+            }
+
+            .modal-container {
+                max-height: 100vh;
+                max-width: 100%;
+            }
+
+            .modal-header {
+                padding: 1.5rem;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-group {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1040,7 +1358,7 @@
                 <a href="#why-us">Why Us</a>
                 <a href="#industries">Industries</a>
                 <a href="#process">Process</a>
-                <a href="#contact" class="nav-cta">Get a Quote</a>
+                <a href="#contact" class="nav-cta" data-modal-trigger onclick="event.preventDefault(); event.stopPropagation(); openQuoteModal();">Get a Quote</a>
             </div>
             <div class="mobile-menu-btn" onclick="toggleMenu()">
                 <span></span>
@@ -1058,7 +1376,7 @@
                 <h1>FAST QUOTES. <span>RELIABLE CREWS.</span> QUALITY WORK.</h1>
                 <p class="hero-description">Louisville-based commercial painting contractor focused on what GCs need most: responsive service, professional results, and zero drama.</p>
                 <div class="hero-ctas">
-                    <a href="#contact" class="btn btn-primary">Request Free Estimate</a>
+                    <a href="#contact" class="btn btn-primary" data-modal-trigger onclick="event.preventDefault(); event.stopPropagation(); openQuoteModal();">Request Free Estimate</a>
                     <a href="#services" class="btn btn-secondary">Our Services</a>
                 </div>
             </div>
@@ -1208,7 +1526,7 @@
                 </div>
             </div>
             <div class="gc-cta">
-                <a href="#contact" class="btn">Let's Talk</a>
+                <a href="#contact" class="btn" data-modal-trigger onclick="event.preventDefault(); event.stopPropagation(); openQuoteModal();">Let's Talk</a>
             </div>
         </div>
     </section>
@@ -1327,57 +1645,6 @@
                     </div>
                 </div>
                 
-                <div class="contact-form fade-in">
-                    <h3>GET YOUR FREE QUOTE</h3>
-                    <p>Fill out the form below and we'll get back to you promptly.</p>
-                    <div class="form-success" id="formSuccess">
-                        Thank you! Your inquiry has been submitted. We'll contact you shortly.
-                    </div>
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required placeholder="John">
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required placeholder="Smith">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Company Name</label>
-                            <input type="text" id="company" name="company" placeholder="Your Company">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required placeholder="john@company.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone *</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="(574) 286-5700">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="projectType">Project Type *</label>
-                            <select id="projectType" name="projectType" required>
-                                <option value="">Select a project type...</option>
-                                <option value="tenant-improvement">Tenant Improvement / Buildout</option>
-                                <option value="office-commercial">Office / Commercial Interior</option>
-                                <option value="retail">Retail Space</option>
-                                <option value="warehouse-industrial">Warehouse / Industrial</option>
-                                <option value="exterior">Exterior / Building Envelope</option>
-                                <option value="specialty">Specialty Coatings (Epoxy, etc.)</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your project: square footage, timeline, specific requirements..."></textarea>
-                        </div>
-                        <button type="submit" class="form-submit">Submit Request</button>
-                    </form>
-                </div>
             </div>
         </div>
     </section>
@@ -1416,6 +1683,195 @@
         </div>
     </footer>
 
+    <!-- Quote Request Modal -->
+    <div id="quoteModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+        <div class="modal-container">
+            <div class="modal-header">
+                <span class="modal-step-indicator" id="stepIndicator">Step 1 of 2</span>
+                <h2 id="modalTitle">REQUEST A FREE QUOTE</h2>
+                <p id="modalSubtitle">Tell us how to reach you and we'll get back to you within 24–48 hours.</p>
+                <button class="modal-close" aria-label="Close modal" onclick="closeQuoteModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="quoteForm" novalidate>
+
+                    <!-- Step 1: Contact Information -->
+                    <div id="formStep1">
+                        <div class="form-section">
+                            <h3 class="form-section-title">CONTACT INFORMATION</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" name="fullName" required placeholder="John Smith">
+                                </div>
+                                <div class="form-group">
+                                    <label for="companyName">Company Name *</label>
+                                    <input type="text" id="companyName" name="companyName" required placeholder="ABC Construction">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="modalEmail">Email *</label>
+                                    <input type="email" id="modalEmail" name="email" required placeholder="john@company.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="modalPhone">Phone *</label>
+                                    <input type="tel" id="modalPhone" name="phone" required placeholder="(502) 555-0123">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Contact Method</label>
+                                <div class="radio-group">
+                                    <label class="radio-label"><input type="radio" name="preferredContact" value="email" checked> Email</label>
+                                    <label class="radio-label"><input type="radio" name="preferredContact" value="phone"> Phone</label>
+                                    <label class="radio-label"><input type="radio" name="preferredContact" value="text"> Text</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="form-submit" id="step1SubmitBtn">
+                                <span class="submit-text">Submit Request</span>
+                                <span class="submit-loading" style="display:none;">Sending...</span>
+                            </button>
+                            <div class="form-details-prompt">
+                                <button type="button" class="form-details-link" onclick="goToStep(2)">Want a faster quote? Add project details &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Project Details -->
+                    <div id="formStep2" style="display:none;">
+                        <button type="button" class="form-back-link" onclick="goToStep(1)">&larr; Back to contact info</button>
+                        <div class="form-section">
+                            <h3 class="form-section-title">PROJECT DETAILS</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="role">Your Role</label>
+                                    <select id="role" name="role">
+                                        <option value="">Select your role...</option>
+                                        <option value="general-contractor">General Contractor</option>
+                                        <option value="property-manager">Property Manager</option>
+                                        <option value="building-owner">Building Owner</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="modalProjectType">Project Type</label>
+                                    <select id="modalProjectType" name="projectType">
+                                        <option value="">Select a project type...</option>
+                                        <option value="tenant-improvement">Tenant Improvement / Buildout</option>
+                                        <option value="office-commercial">Office / Commercial Interior</option>
+                                        <option value="retail">Retail Space</option>
+                                        <option value="warehouse-industrial">Warehouse / Industrial</option>
+                                        <option value="exterior">Exterior / Building Envelope</option>
+                                        <option value="specialty">Specialty Coatings (Epoxy, etc.)</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="projectAddress">Project Address / City</label>
+                                    <input type="text" id="projectAddress" name="projectAddress" placeholder="Louisville, KY">
+                                </div>
+                                <div class="form-group">
+                                    <label for="squareFootage">Approximate Square Footage</label>
+                                    <input type="text" id="squareFootage" name="squareFootage" placeholder="e.g., 10,000 sq ft">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="interiorExterior">Interior, Exterior, or Both?</label>
+                                    <select id="interiorExterior" name="interiorExterior">
+                                        <option value="">Select...</option>
+                                        <option value="interior">Interior</option>
+                                        <option value="exterior">Exterior</option>
+                                        <option value="both">Both</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="stories">Number of Stories / Floors</label>
+                                    <input type="text" id="stories" name="stories" placeholder="e.g., 3">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Surface Types (select all that apply)</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label"><input type="checkbox" name="surfaceTypes" value="drywall"> Drywall</label>
+                                    <label class="checkbox-label"><input type="checkbox" name="surfaceTypes" value="cmu-block"> CMU / Block</label>
+                                    <label class="checkbox-label"><input type="checkbox" name="surfaceTypes" value="metal"> Metal</label>
+                                    <label class="checkbox-label"><input type="checkbox" name="surfaceTypes" value="concrete"> Concrete</label>
+                                    <label class="checkbox-label"><input type="checkbox" name="surfaceTypes" value="wood"> Wood</label>
+                                    <label class="checkbox-label"><input type="checkbox" name="surfaceTypes" value="other"> Other</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="occupied">Is the space currently occupied?</label>
+                                    <select id="occupied" name="occupied">
+                                        <option value="">Select...</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="plansAvailable">Plans / Specs Available?</label>
+                                    <select id="plansAvailable" name="plansAvailable">
+                                        <option value="">Select...</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                        <option value="partial">Partial</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="startDate">Desired Start Date</label>
+                                    <input type="date" id="startDate" name="startDate">
+                                </div>
+                                <div class="form-group">
+                                    <label for="completionDate">Target Completion Date</label>
+                                    <input type="date" id="completionDate" name="completionDate">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="budgetRange">Budget Range (optional)</label>
+                                <select id="budgetRange" name="budgetRange">
+                                    <option value="">Prefer not to say</option>
+                                    <option value="under-10k">Under $10,000</option>
+                                    <option value="10k-25k">$10,000 – $25,000</option>
+                                    <option value="25k-50k">$25,000 – $50,000</option>
+                                    <option value="50k-100k">$50,000 – $100,000</option>
+                                    <option value="100k-250k">$100,000 – $250,000</option>
+                                    <option value="250k-plus">$250,000+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="additionalDetails">Additional Project Details</label>
+                                <textarea id="additionalDetails" name="additionalDetails" rows="4" placeholder="Any additional information: special requirements, access restrictions, coating specs, etc."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="form-submit" id="step2SubmitBtn">
+                                <span class="submit-text">Submit Quote Request</span>
+                                <span class="submit-loading" style="display:none;">Sending...</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+                <!-- Success State -->
+                <div id="quoteSuccess" class="modal-success" style="display:none;">
+                    <div class="success-icon">&#10003;</div>
+                    <h3>QUOTE REQUEST RECEIVED</h3>
+                    <p>Thank you! We've received your project details and will get back to you within 24–48 hours.</p>
+                    <p>A confirmation email has been sent to your email address.</p>
+                    <button class="btn btn-primary" onclick="closeQuoteModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Vercel Speed Insights -->
     <script>
         window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
@@ -1428,9 +1884,10 @@
             document.querySelector('.nav-links').classList.toggle('active');
         }
 
-        // Smooth Scroll
+        // Smooth Scroll (skip modal trigger links)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                if (this.hasAttribute('data-modal-trigger')) return;
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1463,6 +1920,153 @@
                 nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
             } else {
                 nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+            }
+        });
+
+        // ===== Quote Modal =====
+        let currentStep = 1;
+
+        function openQuoteModal() {
+            const modal = document.getElementById('quoteModal');
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            goToStep(1);
+            setTimeout(() => {
+                document.getElementById('fullName').focus();
+            }, 300);
+        }
+
+        function closeQuoteModal() {
+            const modal = document.getElementById('quoteModal');
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            document.getElementById('quoteForm').reset();
+            document.getElementById('quoteForm').style.display = '';
+            document.getElementById('quoteSuccess').style.display = 'none';
+            document.querySelectorAll('.form-group input.error, .form-group select.error').forEach(function(el) {
+                el.classList.remove('error');
+            });
+            currentStep = 1;
+        }
+
+        function goToStep(step) {
+            // Validate step 1 fields before advancing to step 2
+            if (step === 2 && !validateStep1()) return;
+
+            currentStep = step;
+            document.getElementById('formStep1').style.display = step === 1 ? '' : 'none';
+            document.getElementById('formStep2').style.display = step === 2 ? '' : 'none';
+            document.getElementById('stepIndicator').textContent = 'Step ' + step + ' of 2';
+            document.getElementById('modalSubtitle').textContent = step === 1
+                ? 'Tell us how to reach you and we\'ll get back to you within 24\u201348 hours.'
+                : 'Provide project details for a faster, more accurate quote.';
+
+            // Scroll modal to top
+            document.querySelector('.modal-container').scrollTop = 0;
+        }
+
+        function validateStep1() {
+            var valid = true;
+            document.querySelectorAll('.error').forEach(function(el) { el.classList.remove('error'); });
+
+            var fullName = document.getElementById('fullName');
+            var companyName = document.getElementById('companyName');
+            var email = document.getElementById('modalEmail');
+            var phone = document.getElementById('modalPhone');
+
+            if (!fullName.value.trim()) { fullName.classList.add('error'); valid = false; }
+            if (!companyName.value.trim()) { companyName.classList.add('error'); valid = false; }
+            if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { email.classList.add('error'); valid = false; }
+            if (!phone.value.trim()) { phone.classList.add('error'); valid = false; }
+
+            return valid;
+        }
+
+        // Close modal on overlay click
+        document.getElementById('quoteModal').addEventListener('click', function(e) {
+            if (e.target === this) closeQuoteModal();
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeQuoteModal();
+        });
+
+        // Form submission (works from either step)
+        document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            if (!validateStep1()) {
+                if (currentStep === 2) goToStep(1);
+                return;
+            }
+
+            var activeBtn = currentStep === 1
+                ? document.getElementById('step1SubmitBtn')
+                : document.getElementById('step2SubmitBtn');
+            var submitText = activeBtn.querySelector('.submit-text');
+            var submitLoading = activeBtn.querySelector('.submit-loading');
+
+            // Collect surface types
+            var surfaceTypes = Array.from(document.querySelectorAll('input[name="surfaceTypes"]:checked')).map(function(cb) { return cb.value; });
+
+            // Collect preferred contact method
+            var preferredEl = document.querySelector('input[name="preferredContact"]:checked');
+            var preferredContact = preferredEl ? preferredEl.value : 'email';
+
+            var payload = {
+                fullName: document.getElementById('fullName').value.trim(),
+                companyName: document.getElementById('companyName').value.trim(),
+                email: document.getElementById('modalEmail').value.trim(),
+                phone: document.getElementById('modalPhone').value.trim(),
+                preferredContact: preferredContact
+            };
+
+            // Include project details only if on step 2
+            if (currentStep === 2) {
+                payload.role = document.getElementById('role').value;
+                payload.projectType = document.getElementById('modalProjectType').value;
+                payload.projectAddress = document.getElementById('projectAddress').value.trim();
+                payload.squareFootage = document.getElementById('squareFootage').value.trim();
+                payload.interiorExterior = document.getElementById('interiorExterior').value;
+                payload.stories = document.getElementById('stories').value.trim();
+                payload.surfaceTypes = surfaceTypes;
+                payload.occupied = document.getElementById('occupied').value;
+                payload.startDate = document.getElementById('startDate').value;
+                payload.completionDate = document.getElementById('completionDate').value;
+                payload.plansAvailable = document.getElementById('plansAvailable').value;
+                payload.budgetRange = document.getElementById('budgetRange').value;
+                payload.additionalDetails = document.getElementById('additionalDetails').value.trim();
+            }
+
+            // Show loading state
+            activeBtn.disabled = true;
+            submitText.style.display = 'none';
+            submitLoading.style.display = 'inline';
+
+            try {
+                var response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                var data = await response.json();
+
+                if (response.ok && data.success) {
+                    document.getElementById('quoteForm').style.display = 'none';
+                    document.getElementById('quoteSuccess').style.display = 'block';
+                } else {
+                    alert(data.error || 'Something went wrong. Please try again or call us directly.');
+                }
+            } catch (err) {
+                alert('Network error. Please check your connection and try again, or call us at (574) 286-5700.');
+            } finally {
+                activeBtn.disabled = false;
+                submitText.style.display = 'inline';
+                submitLoading.style.display = 'none';
             }
         });
     </script>
